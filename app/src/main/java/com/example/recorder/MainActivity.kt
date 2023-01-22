@@ -2,10 +2,8 @@ package com.example.recorder
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
-import android.media.AudioFormat
-import android.media.AudioRecord
+import android.graphics.BitmapFactory
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Build
@@ -14,20 +12,19 @@ import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.squareup.picasso.Picasso
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.asRequestBody
-import java.io.*
-import java.net.Socket
-import java.nio.charset.Charset
-import java.nio.file.Files
-import java.util.*
-import kotlin.concurrent.thread
+import java.io.File
+import java.io.IOException
+import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
@@ -59,7 +56,18 @@ class MainActivity : AppCompatActivity() {
         val play:Button = findViewById(R.id.button3)
         val msg: TextView = findViewById(R.id.textView)
 
+        val signal:Button = findViewById(R.id.signal)
+        val img:ImageView = findViewById(R.id.ImageView)
+
         getPermissionToRecordAudio()
+
+        signal.setOnClickListener {
+            val pic = "http://192.168.2.101:5000/get_image"
+            runOnUiThread(Runnable {
+                Picasso.get().load(pic).into(img) // load image from url
+            })
+
+        }
 
         start.setOnClickListener {
             msg.text = "Recording...."
@@ -86,7 +94,7 @@ class MainActivity : AppCompatActivity() {
             val client = OkHttpClient()
 
             val request = Request.Builder()
-                .url("http://192.168.2.101:5000/post")
+                .url("http://141.64.162.246:5000/post")
                 .post(requestBody)
                 .build()
 

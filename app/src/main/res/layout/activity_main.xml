@@ -48,17 +48,41 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="613dp"
-        android:layout_height="213dp"
+        android:layout_width="631dp"
+        android:layout_height="107dp"
         android:text="Press RECORD Button"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.216" />
+
+    <Button
+        android:id="@+id/signal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.738" />
+
+    <ImageView
+        android:id="@+id/ImageView"
+        android:layout_width="817dp"
+        android:layout_height="473dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.306"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.84" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
